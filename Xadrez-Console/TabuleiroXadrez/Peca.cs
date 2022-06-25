@@ -1,6 +1,6 @@
 ﻿namespace Xadrez_Console.TabuleiroXadrez
 {
-    class Peca
+    abstract class Peca
     {
         public Posicao Posicao { get; set; }
         public Cor Cor { get; protected set; }
@@ -14,6 +14,8 @@
             Tabuleiro = tabuleiro;
             QuantidadeMovimentos = 0;
         }
+
+        public abstract bool[,] MovimentosPossiveis();
 
         public void IncrementarQuantidadeMovimentos()
         {

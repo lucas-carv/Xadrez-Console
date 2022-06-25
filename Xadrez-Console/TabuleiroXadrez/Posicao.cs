@@ -16,6 +16,11 @@ namespace Xadrez_Console.TabuleiroXadrez
             Linha = linha;
             Coluna = coluna;
         }
+        public void DefinirValores(int linha, int coluna)
+        {
+            Linha = linha;
+            coluna = coluna;
+        }
 
         public override string ToString()
         {
