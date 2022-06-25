@@ -7,6 +7,9 @@ namespace Xadrez_Console
     {
         static void Main(string[] args)
         {
+
+            TabuleiroXadrez tab = new(1,2);
+
             Posicao P;
 
             P = new Posicao(3, 4);
