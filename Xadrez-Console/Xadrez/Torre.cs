@@ -11,55 +11,56 @@ namespace Xadrez_Console.Xadrez
         {
             bool[,] matriz = new bool[Tabuleiro.Linhas, Tabuleiro.Colunas];
 
-            Posicao posicao = new(0, 0);
+            Posicao novaPosicao = new(0, 0);
+            Posicao posicaoOriginal = Posicao;
 
             #region MovimentosPossiveis para a TORRE
             // acima
-            posicao.DefinirValores(posicao.Linha - 1, posicao.Coluna);
-            while (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
+            novaPosicao.DefinirValores(posicaoOriginal.Linha - 1, posicaoOriginal.Coluna);
+            while (Tabuleiro.PosicaoValida(novaPosicao) && PodeMover(novaPosicao))
             {
-                matriz[posicao.Linha, posicao.Coluna] = true;
-                if (Tabuleiro.Peca(posicao) != null && Tabuleiro.Peca(posicao).Cor != this.Cor)
+                matriz[novaPosicao.Linha, novaPosicao.Coluna] = true;
+                if (Tabuleiro.Peca(novaPosicao) != null && Tabuleiro.Peca(novaPosicao).Cor != this.Cor)
                 {
                     break;
                 }
-                posicao.Linha = posicao.Linha - 1;
+                novaPosicao.Linha = novaPosicao.Linha - 1;
             }
 
             // abaixo
-            posicao.DefinirValores(posicao.Linha + 1, posicao.Coluna);
-            while (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
+            novaPosicao.DefinirValores(posicaoOriginal.Linha + 1, posicaoOriginal.Coluna);
+            while (Tabuleiro.PosicaoValida(novaPosicao) && PodeMover(novaPosicao))
             {
-                matriz[posicao.Linha, posicao.Coluna] = true;
-                if (Tabuleiro.Peca(posicao) != null && Tabuleiro.Peca(posicao).Cor != this.Cor)
+                matriz[novaPosicao.Linha, novaPosicao.Coluna] = true;
+                if (Tabuleiro.Peca(novaPosicao) != null && Tabuleiro.Peca(novaPosicao).Cor != this.Cor)
                 {
                     break;
                 }
-                posicao.Linha = posicao.Linha + 1;
+                novaPosicao.Linha = novaPosicao.Linha + 1;
             }
 
             // direita
-            posicao.DefinirValores(posicao.Linha, posicao.Coluna + 1);
-            while (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
+            novaPosicao.DefinirValores(posicaoOriginal.Linha, posicaoOriginal.Coluna + 1);
+            while (Tabuleiro.PosicaoValida(novaPosicao) && PodeMover(novaPosicao))
             {
-                matriz[posicao.Linha, posicao.Coluna] = true;
-                if (Tabuleiro.Peca(posicao) != null && Tabuleiro.Peca(posicao).Cor != this.Cor)
+                matriz[novaPosicao.Linha, novaPosicao.Coluna] = true;
+                if (Tabuleiro.Peca(novaPosicao) != null && Tabuleiro.Peca(novaPosicao).Cor != this.Cor)
                 {
                     break;
                 }
-                posicao.Coluna = posicao.Coluna + 1;
+                novaPosicao.Coluna = novaPosicao.Coluna + 1;
             }
 
             // esquerda
-            posicao.DefinirValores(posicao.Linha, posicao.Coluna - 1);
-            while (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
+            novaPosicao.DefinirValores(posicaoOriginal.Linha, posicaoOriginal.Coluna - 1);
+            while (Tabuleiro.PosicaoValida(novaPosicao) && PodeMover(novaPosicao))
             {
-                matriz[posicao.Linha, posicao.Coluna] = true;
-                if (Tabuleiro.Peca(posicao) != null && Tabuleiro.Peca(posicao).Cor != this.Cor)
+                matriz[novaPosicao.Linha, novaPosicao.Coluna] = true;
+                if (Tabuleiro.Peca(novaPosicao) != null && Tabuleiro.Peca(novaPosicao).Cor != this.Cor)
                 {
                     break;
                 }
-                posicao.Coluna = posicao.Coluna - 1;
+                novaPosicao.Coluna = novaPosicao.Coluna - 1;
             }
 
             #endregion

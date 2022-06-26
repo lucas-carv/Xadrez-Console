@@ -12,45 +12,42 @@ namespace Xadrez_Console.Xadrez
         {
             bool[,] matriz = new bool[Tabuleiro.Linhas, Tabuleiro.Colunas];
 
-            Posicao posicao = new(0,0);
+            Posicao novaPosicao = new(0, 0);
+            Posicao posicaoOriginal = Posicao;
 
             #region MovimentosPossiveis para o REI
             //acima
-            posicao.DefinirValores(posicao.Linha - 1, posicao.Coluna);
-            if (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
-                matriz[posicao.Linha, posicao.Coluna] = true;
-            // acima
-            posicao.DefinirValores(posicao.Linha - 1, posicao.Coluna);
-            if (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
-                matriz[posicao.Linha, posicao.Coluna] = true;
+            novaPosicao.DefinirValores(posicaoOriginal.Linha - 1, posicaoOriginal.Coluna);
+            if (Tabuleiro.PosicaoValida(novaPosicao) && PodeMover(novaPosicao))
+                matriz[novaPosicao.Linha, novaPosicao.Coluna] = true;
             // nordeste
-            posicao.DefinirValores(posicao.Linha - 1, posicao.Coluna + 1);
-            if (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
-                matriz[posicao.Linha, posicao.Coluna] = true;
+            novaPosicao.DefinirValores(posicaoOriginal.Linha - 1, posicaoOriginal.Coluna + 1);
+            if (Tabuleiro.PosicaoValida(novaPosicao) && PodeMover(novaPosicao))
+                matriz[novaPosicao.Linha, novaPosicao.Coluna] = true;
             // direita
-            posicao.DefinirValores(posicao.Linha, posicao.Coluna + 1);
-            if (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
-                matriz[posicao.Linha, posicao.Coluna] = true;
+            novaPosicao.DefinirValores(posicaoOriginal.Linha, posicaoOriginal.Coluna + 1);
+            if (Tabuleiro.PosicaoValida(novaPosicao) && PodeMover(novaPosicao))
+                matriz[novaPosicao.Linha, novaPosicao.Coluna] = true;
             // sudeste
-            posicao.DefinirValores(posicao.Linha + 1, posicao.Coluna + 1);
-            if (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
-                matriz[posicao.Linha, posicao.Coluna] = true;
+            novaPosicao.DefinirValores(posicaoOriginal.Linha + 1, posicaoOriginal.Coluna + 1);
+            if (Tabuleiro.PosicaoValida(novaPosicao) && PodeMover(novaPosicao))
+                matriz[novaPosicao.Linha, novaPosicao.Coluna] = true;
             // abaixo
-            posicao.DefinirValores(posicao.Linha + 1, posicao.Coluna);
-            if (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
-                matriz[posicao.Linha, posicao.Coluna] = true;
+            novaPosicao.DefinirValores(posicaoOriginal.Linha + 1, posicaoOriginal.Coluna);
+            if (Tabuleiro.PosicaoValida(novaPosicao) && PodeMover(novaPosicao))
+                matriz[novaPosicao.Linha, novaPosicao.Coluna] = true;
             // sudoeste
-            posicao.DefinirValores(posicao.Linha + 1, posicao.Coluna - 1);
-            if (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
-                matriz[posicao.Linha, posicao.Coluna] = true;
+            novaPosicao.DefinirValores(posicaoOriginal.Linha + 1, posicaoOriginal.Coluna - 1);
+            if (Tabuleiro.PosicaoValida(novaPosicao) && PodeMover(novaPosicao))
+                matriz[novaPosicao.Linha, novaPosicao.Coluna] = true;
             // esquerda
-            posicao.DefinirValores(posicao.Linha, posicao.Coluna - 1);
-            if (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
-                matriz[posicao.Linha, posicao.Coluna] = true;
+            novaPosicao.DefinirValores(posicaoOriginal.Linha, posicaoOriginal.Coluna - 1);
+            if (Tabuleiro.PosicaoValida(novaPosicao) && PodeMover(novaPosicao))
+                matriz[novaPosicao.Linha, novaPosicao.Coluna] = true;
             // noroeste
-            posicao.DefinirValores(posicao.Linha -1, posicao.Coluna - 1);
-            if (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
-                matriz[posicao.Linha, posicao.Coluna] = true;
+            novaPosicao.DefinirValores(posicaoOriginal.Linha - 1, posicaoOriginal.Coluna - 1);
+            if (Tabuleiro.PosicaoValida(novaPosicao) && PodeMover(novaPosicao))
+                matriz[novaPosicao.Linha, novaPosicao.Coluna] = true;
             #endregion
 
             return matriz;

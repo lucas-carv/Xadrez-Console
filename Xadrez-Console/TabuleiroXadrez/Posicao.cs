@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Xadrez_Console.TabuleiroXadrez
+﻿namespace Xadrez_Console.TabuleiroXadrez
 {
     class Posicao
     {
@@ -19,7 +13,7 @@ namespace Xadrez_Console.TabuleiroXadrez
         public void DefinirValores(int linha, int coluna)
         {
             Linha = linha;
-            coluna = coluna;
+            Coluna = coluna;
         }
 
         public override string ToString()
