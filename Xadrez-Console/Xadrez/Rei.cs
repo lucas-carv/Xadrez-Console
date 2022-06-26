@@ -4,9 +4,18 @@ namespace Xadrez_Console.Xadrez
 {
     class Rei : Peca
     {
-        public Rei(Tabuleiro tabuleiro, Cor cor) : base(tabuleiro, cor)
+        private PartidaDeXadrez Partida;
+        public Rei(Tabuleiro tabuleiro, Cor cor, PartidaDeXadrez partida) : base(tabuleiro, cor)
         {
+            Partida = partida;
         }
+
+        private bool TesteTorreParaRoque(Posicao posicao)
+        {
+            Peca peca = Tabuleiro.Peca(posicao);
+            return peca != null && peca is Torre && peca.Cor == Cor && peca.QuantidadeMovimentos == 0;
+        }
+
 
         public override bool[,] MovimentosPossiveis()
         {
@@ -49,6 +58,23 @@ namespace Xadrez_Console.Xadrez
             if (Tabuleiro.PosicaoValida(novaPosicao) && PodeMover(novaPosicao))
                 matriz[novaPosicao.Linha, novaPosicao.Coluna] = true;
             #endregion
+
+            // #jogadaespecial roque
+            if(QuantidadeMovimentos == 0 && !Partida.Xeque)
+            {
+                // #jogadaespecial roque pequeno
+                Posicao PosicaoTorre = new Posicao(Posicao.Linha, Posicao.Coluna + 3);
+                if (TesteTorreParaRoque(PosicaoTorre))
+                {
+                    Posicao p1 = new Posicao(Posicao.Linha, Posicao.Coluna + 1);
+                    Posicao p2 = new Posicao(Posicao.Linha, Posicao.Coluna + 2);
+
+                    if(Tabuleiro.Peca(p1) == null && Tabuleiro.Peca(p2) == null)
+                    {
+                        matriz[Posicao.Linha, Posicao.Coluna + 2] = true;
+                    }
+                }
+            }
 
             return matriz;
         }
