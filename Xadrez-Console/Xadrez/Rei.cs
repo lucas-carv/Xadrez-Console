@@ -63,8 +63,8 @@ namespace Xadrez_Console.Xadrez
             if(QuantidadeMovimentos == 0 && !Partida.Xeque)
             {
                 // #jogadaespecial roque pequeno
-                Posicao PosicaoTorre = new Posicao(Posicao.Linha, Posicao.Coluna + 3);
-                if (TesteTorreParaRoque(PosicaoTorre))
+                Posicao PosicaoTorre1 = new Posicao(Posicao.Linha, Posicao.Coluna + 3);
+                if (TesteTorreParaRoque(PosicaoTorre1))
                 {
                     Posicao p1 = new Posicao(Posicao.Linha, Posicao.Coluna + 1);
                     Posicao p2 = new Posicao(Posicao.Linha, Posicao.Coluna + 2);
@@ -72,6 +72,20 @@ namespace Xadrez_Console.Xadrez
                     if(Tabuleiro.Peca(p1) == null && Tabuleiro.Peca(p2) == null)
                     {
                         matriz[Posicao.Linha, Posicao.Coluna + 2] = true;
+                    }
+                }
+                
+                // #jogadaespecial roque grande
+                Posicao PosicaoTorre2 = new Posicao(Posicao.Linha, Posicao.Coluna - 4);
+                if (TesteTorreParaRoque(PosicaoTorre2))
+                {
+                    Posicao p1 = new Posicao(Posicao.Linha, Posicao.Coluna - 1);
+                    Posicao p2 = new Posicao(Posicao.Linha, Posicao.Coluna - 2);
+                    Posicao p3 = new Posicao(Posicao.Linha, Posicao.Coluna - 3);
+
+                    if (Tabuleiro.Peca(p1) == null && Tabuleiro.Peca(p2) == null && Tabuleiro.Peca(p3) == null)
+                    {
+                        matriz[Posicao.Linha, Posicao.Coluna - 2] = true;
                     }
                 }
             }
