@@ -59,7 +59,7 @@ namespace Xadrez_Console.Xadrez
         public HashSet<Peca> PecasEmJogo(Cor cor)
         {
             HashSet<Peca> auxiliar = new();
-            foreach (Peca pecaCapturada in Capturadas)
+            foreach (Peca pecaCapturada in Pecas)
             {
                 if (pecaCapturada.Cor == cor)
                     auxiliar.Add(pecaCapturada);
@@ -68,7 +68,7 @@ namespace Xadrez_Console.Xadrez
 
             return auxiliar;
         }
-
+         
         public bool EstaEmXeque(Cor cor)
         {
             Peca rei = Rei(cor);
