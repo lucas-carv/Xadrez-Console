@@ -35,6 +35,24 @@ namespace Xadrez_Console.Xadrez
             MudaJogador();
         }
 
+        public void ValidarPosicaoDeOrigem(Posicao pos)
+        {
+            if (Tabuleiro.Peca(pos) == null)
+                throw new TabuleiroException("Não existe peça na posição de origem escolhida");
+            if (JogadorAtual != Tabuleiro.Peca(pos).Cor)
+                throw new TabuleiroException("A peça de origem escolhida não é sua");
+            if (!Tabuleiro.Peca(pos).ExisteMovimentosPossiveis())
+                throw new TabuleiroException("Não há movimentos possíveis para a peça de origem escolhida");
+        }
+
+        public void ValidarPosicaoDeDestino(Posicao origem, Posicao destino)
+        {
+            if (!Tabuleiro.Peca(origem).PodeMoverPara(destino))
+            {
+                throw new TabuleiroException("Posição de destino inválida!");
+            }
+        }
+
         private void MudaJogador()
         {
             if (JogadorAtual == Cor.Branca)
