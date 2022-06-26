@@ -30,27 +30,27 @@ namespace Xadrez_Console.Xadrez
 
             Posicao posicao = new Posicao(0, 0);
 
-            posicao.DefinirValores(Posicao.Linha - 1, Posicao.Coluna - 2);
+            posicao.DefinirValores(Posicao.Linha - 1, Posicao.Coluna - 2); //
             if (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
             }
-            posicao.DefinirValores(Posicao.Linha - 2, Posicao.Coluna - 1);
+            posicao.DefinirValores(Posicao.Linha - 2, Posicao.Coluna - 1); //
             if (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
             }
-            posicao.DefinirValores(Posicao.Linha - 2, Posicao.Coluna + 1);
+            posicao.DefinirValores(Posicao.Linha - 2, Posicao.Coluna + 1); //
             if (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
             }
-            posicao.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 2);
+            posicao.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 2);//
             if (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
             }
-            posicao.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 2);
+            posicao.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 2); 
             if (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
@@ -65,7 +65,7 @@ namespace Xadrez_Console.Xadrez
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
             }
-            posicao.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 1);
+            posicao.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 2);
             if (Tabuleiro.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
